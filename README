@@ -1,0 +1,14 @@
+tico
+====
+
+tico is a path shortening helper program.
+
+
+examples
+--------
+
+  $ echo "/home/hugopeixoto/work" | tico
+  /h/h/work
+
+  $ echo "~/work/personal/tico" | tico
+  ~/w/t/tico
