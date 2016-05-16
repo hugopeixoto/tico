@@ -10,6 +10,11 @@ int utflength(char c) {
 }
 
 int main(int argc, char* argv[]) {
+  if (argc < 2) {
+    fprintf(stderr, "usage: %s <path>\n", argv[0]);
+    return 1;
+  }
+
   while (argv[1][0] == '/') {
     fputc('/', stdout);
     ++argv[1];

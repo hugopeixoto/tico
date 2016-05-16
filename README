@@ -7,8 +7,8 @@ tico is a path shortening helper program.
 examples
 --------
 
-  $ echo "/home/hugopeixoto/work" | tico
+  $ tico "/home/hugopeixoto/work"
   /h/h/work
 
-  $ echo "~/work/personal/tico" | tico
+  $ tico "~/work/personal/tico"
   ~/w/t/tico
