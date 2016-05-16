@@ -9,27 +9,31 @@ int utflength(char c) {
   return i?i:1;
 }
 
+void shorten(const char* path) {
+  const char* p = NULL;
+
+  while (*path == '/') {
+    fputc('/', stdout);
+    ++path;
+  }
+
+  while ((p = strchr(path, '/'))) {
+    int bytes = utflength(*path);
+
+    printf("%.*s/", bytes, path);
+
+    path = p + 1;
+  }
+
+  puts(path);
+}
+
 int main(int argc, char* argv[]) {
   if (argc < 2) {
     fprintf(stderr, "usage: %s <path>\n", argv[0]);
     return 1;
   }
 
-  while (argv[1][0] == '/') {
-    fputc('/', stdout);
-    ++argv[1];
-  }
-
-  const char* p = argv[1];
-  const char* q = NULL;
-  while ((q = strchr(p, '/'))) {
-    int bytes = utflength(*p);
-
-    printf("%.*s/", bytes, p);
-
-    p = q + 1;
-  }
-
-  puts(p);
+  shorten(argv[1]);
   return 0;
 }
