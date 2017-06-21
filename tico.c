@@ -18,9 +18,12 @@ void shorten(const char* path) {
   }
 
   while ((p = strchr(path, '/'))) {
-    int bytes = utflength(*path);
+    if (*path == '.') {
+      fputc('.', stdout);
+      ++path;
+    }
 
-    printf("%.*s/", bytes, path);
+    printf("%.*s/", utflength(*path), path);
 
     path = p + 1;
   }
