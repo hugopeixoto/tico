@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 assert() {
-  R="$(tico "$1")"
+  R="$(./tico "$1")"
   if [ ! "$R" = "$2" ]; then
     echo "error on tico $1"
     echo "  expected $2"
